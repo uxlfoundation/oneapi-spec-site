@@ -2,7 +2,7 @@ name: Publish
 on:
   workflow_dispatch:
   # trigger will use workflow in target (main) so it can have access to secrets
-  pull_request_target:
+  pull_request:
     branches:
     - main
 
@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
     - name: Install Python
       uses: actions/setup-python@v5
       with:
