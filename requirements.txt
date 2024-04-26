@@ -1,2 +1,6 @@
+click
+pre-commit
+PyYAML
 Sphinx
+sphinx-book-theme
 sphinx-notfound-page

@@ -46,8 +46,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
-    'repository_url': 'https://github.com/uxlfoundation/oneapi-spec',
-    'path_to_docs': 'releases',
+    'repository_url': 'https://github.com/uxlfoundation/oneapi-spec-site',
+    'path_to_docs': 'src',
     'use_issues_button': True,
     'use_edit_page_button': True,
     'repository_branch': 'main',
@@ -56,3 +56,5 @@ html_theme_options = {
 html_sidebars = {
     "**": []
 }
+
+notfound_urls_prefix = ""
