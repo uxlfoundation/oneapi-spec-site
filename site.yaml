@@ -1,0 +1,4 @@
+latest: 1.0-rev-1
+releases:
+- name: 1.0-rev-1
+  url: https://github.com/uxlfoundation/oneAPI-spec/releases/download/v1.0-rev-1/oneapi-spec-v1.0-rev-1.zip
