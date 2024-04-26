@@ -108,11 +108,11 @@ Changes since 1.2
 
   * For oneCCL, we added new APIs for point to point send/recv
     operations.
-    
+
 * Level Zero
 
   See `Level Zero`_
-  
+
 * oneTBB
 
   * Allowed using pointers to class functions and members in place of
@@ -131,7 +131,7 @@ Changes since 1.1
 * SYCL
 
   The following extensions were added:
-  
+
   * `sycl_ext_oneapi_assert` - Support for device-side assert.
   * `sycl_ext_oneapi_default_context` - Adds the concept of a platform
     default context.
@@ -140,15 +140,15 @@ Changes since 1.1
   * `sycl_ext_oneapi_srgb` - Exposes sRGB support for images.
   * `sycl_ext_oneapi_usm_device_read_only` - Adds a property for USM
     allocations.
-  
+
 * oneDPL
 
   The following updates were added in oneDPL specification for version 1.2:
-  
+
   * The content was reorganized.
   * API for random number generation was added.
   * Incremental improvements and bug fixes.
-  
+
 * oneDNN
 
   This is a new major release of oneDNN spec, which breaks
@@ -174,23 +174,23 @@ Changes since 1.1
 * Level Zero
 
   See `Level Zero`_
-  
+
 * oneTBB
 
   The following updates were added in oneTBB specification for version
   1.2:
-  
+
   * Support for core types and thread-per-core limit was added to
     task_arena constraints.
   * API of concurrent_queue and concurrent_bounded_queue was extended
     to better match C++ standard containers.
   * Incremental improvements and bug fixes.
-  
+
 * oneVPL
 
   This release updates oneVPL specification to version 2.9.0. New
   features include:
-  
+
   * Deprecated mfxExtCodingOption2::BitrateLimit.
   * Added note that applications must call MFXVideoENCODE_Query() to
     check for support of mfxExtChromaLocInfo and mfxExtHEVCRegion
@@ -221,7 +221,7 @@ Changes since 1.1
 
   The following updates were added in oneMKL specification for version
   1.2:
-  
+
   * Dense matrix copy and transpose routines were added in the
     BLAS-like extensions
   * half/bfloat16 precision support were added to several L1 BLAS
@@ -280,14 +280,14 @@ Changes since 1.0
   (optional) std::vector of input events instead of
   sycl::vector_class. Other changes include minor clarifications and
   bug fixes.
-  
+
 * oneTBB:
 
   Introduces a way for collaborative one-time function processing
   (collaborative_call_once), mutex classes with adaptive waiting
   behavior (mutex, rw_mutex), the ability to wait for thread completion
   (task_scheduler_handle and the finalize function). Extended task_group
-  and task_arena classes to support deferred task submission via 
+  and task_arena classes to support deferred task submission via
   the new task_handle class. Extended concurrent_hash_map with methods
   that support lookup for distinct key types.
 

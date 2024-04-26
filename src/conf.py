@@ -21,8 +21,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'oneAPI Specification Versions'
-copyright = 'Contributors to the oneapi specification project'
+project = "oneAPI Specification Versions"
+copyright = "Contributors to the oneapi specification project"
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,12 +30,12 @@ copyright = 'Contributors to the oneapi specification project'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['notfound.extension']
+extensions = ["notfound.extension"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -43,18 +43,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_book_theme'
+html_theme = "sphinx_book_theme"
 
 html_theme_options = {
-    'repository_url': 'https://github.com/uxlfoundation/oneapi-spec-site',
-    'path_to_docs': 'src',
-    'use_issues_button': True,
-    'use_edit_page_button': True,
-    'repository_branch': 'main',
+    "repository_url": "https://github.com/uxlfoundation/oneapi-spec-site",
+    "path_to_docs": "src",
+    "use_issues_button": True,
+    "use_edit_page_button": True,
+    "repository_branch": "main",
 }
 
-html_sidebars = {
-    "**": []
-}
+html_sidebars = {"**": []}
 
 notfound_urls_prefix = ""

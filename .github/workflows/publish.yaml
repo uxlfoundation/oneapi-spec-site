@@ -7,6 +7,13 @@ on:
 
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+    - uses: pre-commit/action@v3.0.1
+
   publish:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -35,7 +42,3 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         netlify deploy --dir=dist --site=oneapi-spec --prod
-
-
-
-
