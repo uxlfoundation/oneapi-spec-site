@@ -1,19 +1,13 @@
 name: Publish
 on:
   workflow_dispatch:
+  # trigger will use workflow in target (main) so it can have access to secrets
   pull_request_target:
     branches:
     - main
 
 
 jobs:
-  checks:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-    - uses: pre-commit/action@v3.0.1
-
   publish:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -35,7 +29,7 @@ jobs:
         python scripts/site.py build
         cp -r src/_build/html/* dist
     - name: Publish to development on PR
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request_target' }}
       run: |
         netlify deploy --dir=dist --site=oneapi-spec
     - name: Publish to production with manual trigger
