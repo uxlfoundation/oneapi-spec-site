@@ -24,7 +24,7 @@ def extract_release(releases_dir, url):
     os.remove(file)
 
 def extract_releases(update, site_dir, config):
-    releases_dir = os.path.join(site_dir, 'releases')
+    releases_dir = os.path.join(site_dir, 'versions')
     os.makedirs(releases_dir, exist_ok=update)
     for release in config['releases']:
         if update and os.path.exists(os.path.join(releases_dir, release['name'])):
