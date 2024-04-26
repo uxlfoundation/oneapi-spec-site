@@ -1,6 +1,7 @@
 name: Publish
 on:
   workflow_dispatch:
+  # trigger will use workflow in target (main) so it can have access to secrets
   pull_request_target:
     branches:
     - main
@@ -28,14 +29,10 @@ jobs:
         python scripts/site.py build
         cp -r src/_build/html/* dist
     - name: Publish to development on PR
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request_target' }}
       run: |
         netlify deploy --dir=dist --site=oneapi-spec
     - name: Publish to production with manual trigger
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         netlify deploy --dir=dist --site=oneapi-spec --prod
-
-
-
-
