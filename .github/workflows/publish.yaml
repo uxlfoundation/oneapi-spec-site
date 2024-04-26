@@ -28,6 +28,7 @@ jobs:
       run: make -C src html
     - name: Assemble site
       run: |
+        cat site.yaml
         python scripts/site.py build
         cp -r src/_build/html/* dist
     - name: Publish to development on PR
