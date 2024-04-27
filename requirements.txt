@@ -4,3 +4,4 @@ PyYAML
 Sphinx
 sphinx-book-theme
 sphinx-notfound-page
+sphinxcontrib-spelling
