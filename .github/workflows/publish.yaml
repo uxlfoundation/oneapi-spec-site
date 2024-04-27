@@ -1,7 +1,6 @@
 name: Publish
 on:
   workflow_dispatch:
-  # trigger will use workflow in target (main) so it can have access to secrets
   pull_request:
     branches:
     - main
@@ -12,28 +11,28 @@ jobs:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
-    - name: Install Python
-      uses: actions/setup-python@v5
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt
         npm install netlify-cli -g
-    - name: Make top level
+    - name: Make top level files
       run: make -C src html
     - name: Assemble site
       run: |
-        cat site.yaml
         python scripts/site.py build
         cp -r src/_build/html/* dist
-    - name: Publish to development on PR
-      if: ${{ github.event_name == 'pull_request_target' }}
-      run: |
-        netlify deploy --dir=dist --site=oneapi-spec
-    - name: Publish to production with manual trigger
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: |
-        netlify deploy --dir=dist --site=oneapi-spec --prod
+    - name: Publish to development
+      # Publish to preview for a PR
+      # Cannot publish from a fork because no access to secrets
+      if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false }}
+      run: netlify deploy --dir=dist --site=oneapi-spec
+    - name: Publish to production
+      # Publish to production when manually triggered for main
+      if: ${{ github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' }}
+      run: netlify deploy --dir=dist --site=oneapi-spec --prod
