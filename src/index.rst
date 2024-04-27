@@ -30,7 +30,7 @@ Releases are listed below. See GitHub_ for the latest build.
     - View
   * - `1.3 rev 1`_
     - 2023-11-06
-    - `HTML <versions/1.3-rev-1/>`__ `PDF <versions/1.3-rev-1/oneAPI-spec.pdf>`__
+    - `HTML <specifications/oneapi/v1.3-rev-1/>`__ `PDF <specifications/oneapi/v1.3-rev-1/oneAPI-spec.pdf>`__
   * - `1.3 provisional rev 1`_
     - 2023-9-14
     - `HTML <versions/1.3-provisional-rev-1/>`__ `PDF <versions/1.3-provisional-rev-1/oneAPI-spec.pdf>`__
@@ -88,7 +88,7 @@ Releases are listed below. See GitHub_ for the latest build.
     - `HTML <versions/1.0-rev-2/>`__ `PDF <versions/1.0-rev-2/oneAPI-spec.pdf>`__
   * - `1.0 rev 1`_
     - 2020-9-14
-    - `HTML <versions/1.0-rev-1/>`__ `PDF <versions/1.0-rev-1/oneAPI-spec.pdf>`__
+    - `HTML <specifications/oneapi/v1.0-rev-1/>`__ `PDF <specifications/v1.0-rev-1/oneAPI-spec.pdf>`__
 
 Release Notes
 -------------

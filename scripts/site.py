@@ -19,30 +19,30 @@ def download_file(url):
     return local_filename
 
 
-def extract_release(releases_dir, url):
+def extract_release(site_dir: str, url: str):
     file = download_file(url)
     with zipfile.ZipFile(file, "r") as zip_ref:
-        zip_ref.extractall(releases_dir)
+        zip_ref.extractall(site_dir)
     os.remove(file)
 
 
-def extract_releases(update, site_dir, config):
-    releases_dir = os.path.join(site_dir, "versions")
-    os.makedirs(releases_dir, exist_ok=update)
-    for release in config["releases"]:
-        if update and os.path.exists(
-            os.path.join(releases_dir, release["name"])
-        ):
-            continue
-        extract_release(releases_dir, release["url"])
-
-    latest = os.path.join(releases_dir, "latest")
-    if update and os.path.exists(latest):
-        os.remove(latest)
-    try:
-        os.symlink(config["latest"], latest)
-    except Exception as e:
-        raise click.ClickException(f"Could not create latest link: {e}")
+def extract_site(update: bool, site_dir: str, tree: dict):
+    for key, value in tree.items():
+        dir = os.path.join(site_dir, key)
+        exists = os.path.exists(dir)
+        try:
+            os.makedirs(dir, exist_ok=update)
+        except Exception as e:
+            raise click.ClickException(
+                f"Could not create directory {dir}: {e}"
+            )
+        if isinstance(value, str):
+            if not exists:
+                extract_release(dir, value)
+        elif isinstance(value, dict):
+            extract_site(update, dir, value)
+        else:
+            raise click.ClickException(f"Invalid value for {key}: {value}")
 
 
 @click.group()
@@ -52,16 +52,26 @@ def cli():
 
 @cli.command()
 @click.option("--update", is_flag=True, help="Update the site.")
-@click.option("--dir", type=click.Path(), default="dist")
-def build(update, dir):
+@click.option(
+    "--dir", type=click.Path(), default="dist", help="Site directory."
+)
+@click.option(
+    "--config",
+    type=click.Path(),
+    default="site.yaml",
+    help="Site configuration.",
+)
+def build(update, dir, config):
     """Build the site."""
 
     # get configuration from site.yaml
     try:
-        with open("site.yaml") as f:
-            config = yaml.load(f, Loader=yaml.FullLoader)
+        with open(config) as f:
+            c = yaml.load(f, Loader=yaml.FullLoader)
     except Exception as e:
-        raise click.ClickException(f"Could not load site configuration: {e}")
+        raise click.ClickException(
+            f"Could not load site configuration from {config}: {e}"
+        )
 
     try:
         os.makedirs(dir, exist_ok=update)
@@ -70,7 +80,7 @@ def build(update, dir):
             f"Site directory {dir} could not be created: {e}"
         )
 
-    extract_releases(update, dir, config)
+    extract_site(update, dir, c["site"])
 
 
 if __name__ == "__main__":
