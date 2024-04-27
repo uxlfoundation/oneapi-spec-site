@@ -12,14 +12,14 @@ repos:
    - id: clang-format
 
 - repo: https://github.com/ambv/black
-  rev: 24.2.0
+  rev: 24.4.2
   hooks:
   - id: black
     args: ['--line-length=79']
 
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.5.0
+  rev: v4.6.0
   hooks:
   - id: trailing-whitespace
   - id: end-of-file-fixer
@@ -51,3 +51,12 @@ repos:
   rev: v0.6.13
   hooks:
   - id: cmake-format
+
+- repo: local
+  hooks:
+  - id: sphinx
+    name: sphinx
+    entry: make -C src spelling linkcheck html
+    language: system
+    pass_filenames: false
+    always_run: true

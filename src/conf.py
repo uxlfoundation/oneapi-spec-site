@@ -30,7 +30,10 @@ copyright = "Contributors to the oneapi specification project"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["notfound.extension"]
+extensions = [
+    "notfound.extension",
+    "sphinxcontrib.spelling",
+]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -55,4 +58,14 @@ html_theme_options = {
 
 html_sidebars = {"**": []}
 
+# notfound (404) page configuration
 notfound_urls_prefix = ""
+
+# spelling configuration
+spelling_show_suggestions = True
+spelling_lang = "en_US"
+spelling_word_list_filename = "spelling_wordlist.txt"
+
+# linkcheck configuration
+# ignore relative links
+linkcheck_ignore = [r"^(?!https).*$"]
