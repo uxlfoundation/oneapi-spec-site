@@ -40,4 +40,17 @@ The site layout is determined by the ``site.yaml`` file. A nested set of
 directories is described by a nested set of dictionaries. When a key is not a
 dictionary, it is assumed to be a URL for a release.
 
+Web Site Hosting
+================
+
+We are using Netlify because GitHub pages cannot handle sites > 1 Gbyte. Robert
+has the Netlify account. If you want to do a manual deploy (development or
+production), follow the procedure in ``.github/workflows/publish.yaml``. You
+will need to provide a token::
+
+   export NETLIFY_AUTH_TOKEN=your_token
+
+Get a token from Robert if you need to deploy to production. Otherwise, create
+your own site under your own account in Netlify.
+
 .. _oneAPI Specification: https://github.com/uxlfoundation/oneAPI-spec
