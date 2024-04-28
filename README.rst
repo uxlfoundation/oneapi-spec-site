@@ -19,9 +19,10 @@ To add a new release to the site, follow these steps:
 * Create a release in the `oneAPI Specification`_ repository. Attach a build of
   the spec (html & PDF) to the release. Follow the naming convention and
   contents for previous releases.
-* Update ``site.yaml`` to include the URL for the release. Do not forget to
+* Update `site.yaml`_ to include the URL for the release. Do not forget to
   update the ``latest`` key.
-* Update releases page in ``src/index.rst``
+* Update releases page in `src/index.rst`_. Add a new section for the release
+  with a link to the release notes and the spec.
 * Submit a PR with the changes. As part of the checks, the site will be built
   and deployed for preview. Submit the PR from a branch in this repo, not a
   fork. Preview requires access to GitHub secrets that are not available in a
@@ -30,13 +31,14 @@ To add a new release to the site, follow these steps:
 
    Website draft URL: https://662cecf4606617cb73f85378--oneapi-spec.netlify.app
 
-* If everything looks good, merge the PR. The site will be built and deployed
-  to the main site.
+* If everything looks good, merge the PR. To deploy to production, manually
+  trigger the publish workflow by clicking on the "Run workflow" button in the
+  `GitHub Actions tab`_.
 
 Site Layout
 ===========
 
-The site layout is determined by the ``site.yaml`` file. A nested set of
+The site layout is determined by the `site.yaml`_ file. A nested set of
 directories is described by a nested set of dictionaries. When a key is not a
 dictionary, it is assumed to be a URL for a release.
 
@@ -45,7 +47,7 @@ Web Site Hosting
 
 We are using Netlify because GitHub pages cannot handle sites > 1 Gbyte. Robert
 has the Netlify account. If you want to do a manual deploy (development or
-production), follow the procedure in ``.github/workflows/publish.yaml``. You
+production), follow the procedure in `.github/workflows/publish.yaml`_. You
 will need to provide a token::
 
    export NETLIFY_AUTH_TOKEN=your_token
@@ -53,4 +55,8 @@ will need to provide a token::
 Get a token from Robert if you need to deploy to production. Otherwise, create
 your own site under your own account in Netlify.
 
+.. _`src/index.rst`: src/index.rst
+.. _`site.yaml`: site.yaml
+.. _GitHub Actions tab: https://github.com/uxlfoundation/oneapi-spec-site/actions/workflows/publish.yaml
 .. _oneAPI Specification: https://github.com/uxlfoundation/oneAPI-spec
+.. _`.github/workflows/publish.yaml`: .github/workflows/publish.yaml
