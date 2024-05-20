@@ -4,10 +4,10 @@ Page Not Found
 
 We cannot find the page. Please try:
 
-- Starting the navigation from `https://oneapi-spec.netlify.app`_
+- Starting the navigation from `https://oneapi-spec.uxlfoundation.org`_
 - Clearing your `browser cache`_
 - Filing a `GitHub issue`_
 
-.. _`https://oneapi-spec.netlify.app`: https://oneapi-spec.netlify.app
+.. _`https://oneapi-spec.uxlfoundation.org`: https://oneapi-spec.uxlfoundation.org
 .. _`browser cache`: https://clear-my-cache.com/
 .. _`GitHub issue`: https://github.com/uxlfoundation/oneapi-spec/issues
