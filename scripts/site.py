@@ -19,11 +19,27 @@ def download_file(url):
     return local_filename
 
 
+def patch_files(site_dir: str, old: str, new: str):
+    for root, dirs, files in os.walk(site_dir):
+        for file in files:
+            if file.endswith(".html"):
+                with open(os.path.join(root, file), "r") as f:
+                    content = f.read()
+                content = content.replace(old, new)
+                with open(os.path.join(root, file), "w") as f:
+                    f.write(content)
+
+
 def extract_release(site_dir: str, url: str):
     file = download_file(url)
     with zipfile.ZipFile(file, "r") as zip_ref:
         zip_ref.extractall(site_dir)
     os.remove(file)
+    patch_files(
+        site_dir,
+        "https://spec.oneapi.com/releases/index.html",
+        "https://oneapi-spec.uxlfoundation.org/",
+    )
 
 
 def extract_site(update: bool, site_dir: str, tree: dict):
