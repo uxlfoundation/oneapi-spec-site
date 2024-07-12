@@ -8,6 +8,9 @@ oneAPI Specification Web Site
 .. image:: https://github.com/uxlfoundation/oneapi-spec-site/actions/workflows/publish.yaml/badge.svg
    :target: https://github.com/uxlfoundation/oneapi-spec-site/actions/workflows/publish.yaml
 
+.. image:: https://api.scorecard.dev/projects/github.com/uxlfoundation/oneapi-spec-site/badge
+   :target: https://scorecard.dev/viewer/?uri=github.com/uxlfoundation/oneapi-spec-site
+
 This repository contains the source files for the oneAPI Specification web
 site.
 
