@@ -18,6 +18,21 @@ Releases are listed below. See GitHub_ for the latest build.
 .. _GitHub: https://github.com/uxlfoundation/oneapi-spec
 
 
+1.4
+---
+
+.. list-table::
+  :widths: 30 20 50
+  :header-rows: 1
+
+  * - Version
+    - Date
+    - View
+  * - 1.4 provisional rev 1
+    - 2024-9-13
+    - `HTML <specifications/oneapi/v1.4-provisional-rev-1/>`__ `PDF <specifications/oneapi/v1.4-provisional-rev-1/oneAPI-spec.pdf>`__ `Release notes <https://github.com/uxlfoundation/oneAPI-spec/releases/tag/oneAPI-v1.4-provisional-rev-1>`__
+
+
 1.3
 ---
 
