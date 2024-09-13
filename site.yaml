@@ -2,6 +2,7 @@ site:
   specifications:
     oneapi:
       latest: https://github.com/uxlfoundation/oneAPI-spec/releases/download/oneAPI-v1.3-rev-1/oneapi-spec-v1.3-rev-1.zip
+      v1.4-provisional-rev-1: https://github.com/uxlfoundation/oneAPI-spec/releases/download/oneAPI-v1.4-provisional-rev-1/oneapi-spec-v1.4-provisional-rev-1.zip
       v1.3-rev-1: https://github.com/uxlfoundation/oneAPI-spec/releases/download/oneAPI-v1.3-rev-1/oneapi-spec-v1.3-rev-1.zip
       v1.3-provisional-rev-1: https://github.com/uxlfoundation/oneAPI-spec/releases/download/oneAPI-v1.3-provisional-rev-1/oneapi-spec-v1.3-provisional-rev-1.zip
       v1.2-rev-1: https://github.com/uxlfoundation/oneAPI-spec/releases/download/oneAPI-v1.2-rev-1/oneapi-spec-v1.2-rev-1.zip
